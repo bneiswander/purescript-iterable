@@ -1,5 +1,11 @@
 'use strict';
 
-exports.iterator = function(iterable) {
-  return iterable[Symbol.iterator]();
+exports.iterator = function() {
+  return function(iterable) {
+    return iterable[Symbol.iterator]();
+  }
+};
+
+exports.next = function(iterator) {
+  return iterator.next();
 };
