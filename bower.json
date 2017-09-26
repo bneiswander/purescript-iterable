@@ -1,6 +1,10 @@
 {
   "name": "purescript-iterable",
   "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Risto-Stevcev/purescript-iterable.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
