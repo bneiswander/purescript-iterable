@@ -47,3 +47,9 @@ main = run [consoleReporter] do
         g <- liftEffect (next it)
         g.done `shouldEqual` true
         (toMaybe g.value) `shouldEqual` Nothing
+
+      it "should be isomorphic to an array" do
+        let it' = [1,2,3,4]
+
+        xs <- liftEffect (toArray (iterator it'))
+        xs `shouldEqual` it'
