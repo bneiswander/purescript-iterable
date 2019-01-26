@@ -4,8 +4,6 @@ exports.unsafeIterator = function unsafeIterator(iterable) {
   return iterable[Symbol.iterator]();
 };
 
-exports.next = function next(iterator) {
-  return function next_() {
-    return iterator.next();
-  };
+exports.nextImpl = function nextImpl(iterator) {
+  return iterator.next();
 };
