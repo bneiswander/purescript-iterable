@@ -12,7 +12,8 @@
     "output"
   ],
   "dependencies": {
-    "purescript-undefinable": "git://github.com/athanclark/purescript-undefinable.git#c0206e55574aa6104bb49b100a12af8529fa3184",
+    "purescript-prelude": "^4.1.0",
+    "purescript-undefinable": "^4.0.0",
     "purescript-effect": "^2.0.0"
   },
   "devDependencies": {
