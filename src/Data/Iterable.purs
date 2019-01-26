@@ -1,22 +1,22 @@
 module Data.Iterable where
 
 import Data.Undefinable (Undefinable)
+import Effect (Effect)
 
 -- | The Iterable class corresponds to the Iterable interface in JS.
--- | Instances should have a property with the Symbol.iterator as the key. The
--- | property should return a function that takes no arguments and returns an
--- | Iterator
-class Iterable iterable value | iterable -> value
+-- | Instances should have a canonical `Iterator` returned.
+class Iterable iterable value | iterable -> value where
+  -- | Returns the `Iterator` from an `Iterable`
+  iterator :: iterable -> Iterator value
+instance iterableArray ∷ Iterable (Array a) a where
+  iterator = unsafeIterator
 
--- | Returns the Iterator from an Iterable
-foreign import iterator
-  ∷ ∀ iterable value. Iterable iterable value ⇒ iterable → Iterator value
+-- | Assume the `iterable` value has a property with the `Symbol.iterator` as the key, which is a nullary function
+-- | returning the `Iterator`.
+foreign import unsafeIterator :: forall iterable value. iterable -> Iterator value
 
-foreign import data Iterator ∷ Type → Type
+-- | Corresponds to an `Iterator` object in JS.
+foreign import data Iterator :: Type -> Type
 
-foreign import next
-  ∷ ∀ value
-  . Iterator value
-  → { value ∷ Undefinable value, done ∷ Boolean }
-
-instance iterableArray ∷ Iterable (Array a) a
+-- | `next()` is an effectful function, treating a `Iterator value` as a stateful reference.
+foreign import next :: forall value. Iterator value -> Effect { value :: Undefinable value, done :: Boolean }

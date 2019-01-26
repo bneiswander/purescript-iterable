@@ -1,9 +1,8 @@
 module Test.Main where
 
 import Prelude
-import Control.Monad.Eff (Eff)
-import Test.Spec.Runner (RunnerEffects)
+import Effect (Effect)
 import Test.Data.Iterable (main) as Test
 
-main ∷ Eff (RunnerEffects ()) Unit
+main ∷ Effect Unit
 main = Test.main

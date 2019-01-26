@@ -1,11 +1,11 @@
 'use strict';
 
-exports.iterator = function() {
-  return function(iterable) {
-    return iterable[Symbol.iterator]();
-  };
+exports.unsafeIterator = function unsafeIterator(iterable) {
+  return iterable[Symbol.iterator]();
 };
 
-exports.next = function(iterator) {
-  return iterator.next();
+exports.next = function next(iterator) {
+  return function next_() {
+    return iterator.next();
+  };
 };
