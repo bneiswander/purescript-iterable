@@ -1,17 +1,8 @@
+node_js:
+  - "node"
 language: node_js
-dist: trusty
-sudo: required
-node_js: 6
 install:
-  - npm install -g bower
-  - npm install
-script:
-  - bower install --production
-  - npm run -s build
+  - npm install -g purescript pulp bower
   - bower install
-  - npm -s test
-after_success:
-- >-
-  test $TRAVIS_TAG &&
-  echo $GITHUB_TOKEN | pulp login &&
-  echo y | pulp publish --no-push
+script:
+  - pulp test
