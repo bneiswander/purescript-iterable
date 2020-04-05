@@ -3,6 +3,7 @@ module Test.Data.Iterable where
 import Data.Iterable
 
 import Effect (Effect)
+import Effect.Aff (Aff)
 import Effect.Class (liftEffect)
 import Data.Maybe (Maybe(..))
 import Prelude (Unit, discard, bind)
@@ -12,7 +13,7 @@ import Test.Spec.Reporter.Console (consoleReporter)
 import Test.Spec.Runner (run)
 
 
-main ∷ Effect Unit
+main ∷ Aff Unit
 main = run [consoleReporter] do
   describe "purescript-iterable" do
     describe "iterator" do
