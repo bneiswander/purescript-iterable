@@ -1,20 +1,18 @@
 module Test.Data.Iterable where
 
 import Data.Iterable
-
-import Effect (Effect)
+import Data.Maybe (Maybe(..))
 import Effect.Aff (Aff)
 import Effect.Class (liftEffect)
-import Data.Maybe (Maybe(..))
 import Prelude (Unit, discard, bind)
 import Test.Spec (describe, it)
 import Test.Spec.Assertions (shouldEqual)
 import Test.Spec.Reporter.Console (consoleReporter)
-import Test.Spec.Runner (run)
+import Test.Spec.Runner (runSpec)
 
 
 main ∷ Aff Unit
-main = run [consoleReporter] do
+main = runSpec [consoleReporter] do
   describe "purescript-iterable" do
     describe "iterator" do
       it "should return an iterator that can be iterated" do
