@@ -1,0 +1,16 @@
+package:
+  dependencies:
+    - aff
+    - arrays
+    - effect
+    - foreign
+    - maybe
+    - prelude
+    - refs
+    - spec
+    - tailrec
+  name: iterable
+workspace:
+  extraPackages: {}
+  packageSet:
+    url: https://raw.githubusercontent.com/purescript/package-sets/psc-0.15.4-20220725/packages.json
