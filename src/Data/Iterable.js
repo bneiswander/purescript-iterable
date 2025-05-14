@@ -1,9 +1,5 @@
 'use strict';
 
-export const unsafeIterator = function unsafeIterator(iterable) {
+export const unsafeIteratorImpl = function unsafeIteratorImpl(iterable) {
   return iterable[Symbol.iterator]();
-};
-
-export const nextImpl = function nextImpl(iterator) {
-  return iterator.next();
 };
