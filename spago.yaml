@@ -8,6 +8,7 @@ package:
     - prelude
     - refs
     - spec
+    - spec-node
     - tailrec
   name: iterable
 workspace:
